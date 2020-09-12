@@ -20,7 +20,7 @@ $(document).ready(function(){
 
         var title = $("<h1>").text(response.name);
         var temp = $("<p>").text("Temperature: " + Math.round(response.main.temp) + "°F");
-        var humid = $("<p>").text("Humidity: " + response.main.humidity);
+        var humid = $("<p>").text("Humidity: " + response.main.humidity + "%");
         var wind = $("<p>").text("Wind Speed: " + response.wind.speed + " MPH");
         var uv = $("<p>").text("UV Index: " + response.main.speed);
         weatherStats.append(title, temp, humid, wind);
