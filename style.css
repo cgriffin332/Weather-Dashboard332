@@ -2,3 +2,24 @@ button {
     height: 2.2rem;
     width: 2.2rem;
 }
+/* uv closs styling */
+.red {
+    color: white;
+    background-color: red;
+    padding: .5rem;
+}
+.orange {
+    color: white;
+    background-color: orange;
+    padding: .5rem;
+}
+.yellow {
+    color: white;
+    background-color: yellow;
+    padding: .5rem;
+}
+.green {
+    color: white;
+    background-color: green;
+    padding: .5rem;
+}

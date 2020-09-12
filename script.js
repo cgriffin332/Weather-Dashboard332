@@ -1,9 +1,9 @@
 $(document).ready(function(){
+    // submit button
     var submitBtn = $("#submit");
     var city = $("#inputCity")
     var weatherStats = $("#weatherStats")
-    // current date and time
-    var objDate = new Date();
+
     
 
     submitBtn.on("click", function(event){
@@ -44,8 +44,21 @@ $(document).ready(function(){
           }).then(function(response) {
 
             console.log(response);
-            var uv = $("<p>").text("UV Index: " + response.value);
-            weatherStats.append(uv);
+            var uvLable = $("<p>").text("UV Index: ");
+            var uv = $("<span>").text(response.value);
+            uv.appendTo(uvLable);
+            // add background color to uv index
+            if (response.value < 3){
+                uv.addClass("green")
+            }
+            else if (response.value >= 8){
+                uv.addClass("red")
+            }
+            else if (response.value < 8 && response.value >= 6){
+                uv.addClass("orange")
+            }
+            else{uv.addClass("yellow")}
+            weatherStats.append(uvLable);
             
       
 
