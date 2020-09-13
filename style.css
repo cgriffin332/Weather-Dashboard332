@@ -31,5 +31,9 @@ button {
     width: 17%;
     height: 10rem;
     margin: 0 .5rem;
-    text-align: center;
+    padding: .5rem
+}
+
+.days p {
+    font-size: .75rem;
 }

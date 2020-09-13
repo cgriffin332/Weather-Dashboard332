@@ -26,14 +26,14 @@ $(document).ready(function () {
         response.coord.lon +
         "&units=imperial";
 
-      console.log(response);
+      
       var iconCode = response.weather[0].icon;
-      console.log(iconCode);
+      
       var iconURL = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
-      console.log(iconURL);
+      
       var icon = $("<img>").attr("src", iconURL);
       icon.attr("style", "width: 4rem;");
-      console.log(icon);
+      
       var title = $("<h2>").text(
         response.name + "  (" + moment().format("l") + ")"
       );
@@ -50,7 +50,7 @@ $(document).ready(function () {
         url: uvURL,
         method: "GET",
       }).then(function (response) {
-        console.log(response);
+        
         var uvLable = $("<p>").text("UV Index: ");
         var uv = $("<span>").text(response.value);
         uv.appendTo(uvLable);
@@ -68,18 +68,39 @@ $(document).ready(function () {
       });
     });
     //make variables for 5-day url 
+    var daysURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityValue + "&units=imperial&cnt=5&appid=c320efcc3b8bfdd8481af302341ac06c"
     //make an ajax call to 5-day
+    $.ajax({
+        url: daysURL,
+        method: "GET",
+      }).then(function (response) {
+        console.log(response);
 
     // create Dom Variable for 5-day div
-
+      var forecast = $("#forecast");
     // create a for loop to do this 5 times
+      for (var i = 0; i < 5; i++) {
         // create another div
+        var day = $("<div>");
         // add class of "days"
-            // inside append h6 date
-            // append icon <p>
+        day.addClass("days");
+        // inside append h6 date
+        var date = $("<h6>").text(moment().add(i, 'days').format('l'));  
+        // append icon <p>
+        var iconCode = response.list[i].weather[0].icon;
+        var iconURL = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+        var icon = $("<img>").attr("src", iconURL);
+        icon.attr("style", "width: 3rem;");
             // append temp <p>
-            // append humidity <p>
+        var temp = $("<p>").text("Temp: " + response.list[i].main.temp + "°F");
+            // append humidity <p>'
+        var humid = $("<p>").text("Humidity: " + response.list[i].main.humidity + "%");
         //append this div to 5-day div
+        day.append(date, icon, temp, humid);
+        //append each day into forecast div
+        forecast.append(day);
+      }
+    });
 
   });
 });
