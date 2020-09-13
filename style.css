@@ -1,3 +1,10 @@
+body {
+    background-color: lightblue;
+}
+.container-flex {
+    padding-top: 1rem;
+    padding-bottom: 6rem;
+}
 button {
     height: 2.25rem;
     width: 2.5rem;

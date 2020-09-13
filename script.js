@@ -30,7 +30,7 @@ var getAllInfo = function () {
         "&lon=" +
         response.coord.lon +
         "&units=imperial";
-
+        console.log(uvURL);
       var iconCode = response.weather[0].icon;
 
       var iconURL =
@@ -47,7 +47,6 @@ var getAllInfo = function () {
       );
       var humid = $("<p>").text("Humidity: " + response.main.humidity + "%");
       var wind = $("<p>").text("Wind Speed: " + response.wind.speed + " MPH");
-      var uv = $("<p>").text("UV Index: " + response.main.speed);
       title.append(icon);
       weatherStats.append(title, temp, humid, wind);
 
@@ -90,7 +89,7 @@ var getAllInfo = function () {
         // add class of "days"
         day.addClass("days");
         // inside append h6 date
-        var date = $("<h6>").text(moment().add(i, "days").format("l"));
+        var date = $("<h6>").text(moment().add(i + 1, "days").format("l"));
         // append icon <p>
         var iconCode = response.list[i].weather[0].icon;
         var iconURL =
