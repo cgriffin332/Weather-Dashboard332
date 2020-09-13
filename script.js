@@ -111,6 +111,10 @@ var getAllInfo = function () {
         forecast.append(day);
       }
     });
+    setTimeout(function () {
+        localStorage.setItem("weatherStats", weatherStats.html());
+        localStorage.setItem("forecast", forecast.html());
+      }, 1000);
   };
 
 
@@ -126,10 +130,6 @@ var getAllInfo = function () {
       .addClass("history")
       .attr("value", cityValue);
     searchedItems.append(search);
-    setTimeout(function () {
-      localStorage.setItem("weatherStats", weatherStats.html());
-      localStorage.setItem("forecast", forecast.html());
-    }, 3000);
   });
   $(document).on("click", ".history", function(event){
       event.preventDefault();
@@ -137,9 +137,5 @@ var getAllInfo = function () {
       forecast.empty();
       cityValue = event.target.innerText;
       getAllInfo();
-      setTimeout(function () {
-        localStorage.setItem("weatherStats", weatherStats.html());
-        localStorage.setItem("forecast", forecast.html());
-      }, 3000);
   })
 });
