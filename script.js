@@ -25,7 +25,7 @@ $(document).ready(function () {
     }).then(function (response) {
       // get info for UV url
       var uvURL =
-        "http://api.openweathermap.org/data/2.5/uvi?appid=c320efcc3b8bfdd8481af302341ac06c&lat=" +
+        "https://api.openweathermap.org/data/2.5/uvi?appid=c320efcc3b8bfdd8481af302341ac06c&lat=" +
         response.coord.lat +
         "&lon=" +
         response.coord.lon +
@@ -34,7 +34,7 @@ $(document).ready(function () {
       //get icon code
       var iconCode = response.weather[0].icon;
       // put icon code into url
-      var iconURL = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+      var iconURL = "https://openweathermap.org/img/wn/" + iconCode + "@2x.png";
       // create weather icon image
       var icon = $("<img>").attr("src", iconURL);
       // set style
@@ -83,7 +83,7 @@ $(document).ready(function () {
     });
     //make variables for 5-day url
     var daysURL =
-      "http://api.openweathermap.org/data/2.5/forecast?q=" +
+      "https://api.openweathermap.org/data/2.5/forecast?q=" +
       cityValue +
       "&units=imperial&cnt=5&appid=c320efcc3b8bfdd8481af302341ac06c";
     //make an ajax call to 5-day
@@ -108,7 +108,7 @@ $(document).ready(function () {
         var iconCode = response.list[i].weather[0].icon;
         // add it to the url
         var iconURL =
-          "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+          "https://openweathermap.org/img/wn/" + iconCode + "@2x.png";
         //create icon element
         var icon = $("<img>").attr("src", iconURL);
         icon.attr("style", "width: 3rem;");
