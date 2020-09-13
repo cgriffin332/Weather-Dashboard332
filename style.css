@@ -5,11 +5,18 @@ body {
     padding-top: 1rem;
     padding-bottom: 6rem;
 }
-button {
+.submit {
     height: 2.25rem;
     width: 2.5rem;
+    background-color: rgb(0, 127, 247);
+    color: white;
 }
 /* uv closs styling */
+.violet {
+    color: white;
+    background-color: violet;
+    padding: .5rem;
+}
 .red {
     color: white;
     background-color: red;

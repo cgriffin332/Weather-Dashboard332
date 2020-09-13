@@ -60,8 +60,10 @@ var getAllInfo = function () {
         // add background color to uv index
         if (response.value < 3) {
           uv.addClass("green");
-        } else if (response.value >= 8) {
-          uv.addClass("red");
+        } else if (response.value >= 11) {
+          uv.addClass("violet");
+        } else if (response.value < 11 && response.value >= 8) {
+            uv.addClass("red");
         } else if (response.value < 8 && response.value >= 6) {
           uv.addClass("orange");
         } else {
