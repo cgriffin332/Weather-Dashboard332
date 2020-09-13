@@ -3,10 +3,13 @@ $(document).ready(function () {
   var submitBtn = $("#submit");
   var city = $("#inputCity");
   var weatherStats = $("#weatherStats");
+  // create Dom Variable for 5-day div
+  var forecast = $("#forecast");
 
   submitBtn.on("click", function (event) {
     event.preventDefault();
     weatherStats.empty();
+    forecast.empty();
     var cityValue = city.val();
     // Here we are building the URL we need to query the database
     var queryURL =
@@ -76,8 +79,7 @@ $(document).ready(function () {
       }).then(function (response) {
         console.log(response);
 
-    // create Dom Variable for 5-day div
-      var forecast = $("#forecast");
+    
     // create a for loop to do this 5 times
       for (var i = 0; i < 5; i++) {
         // create another div
@@ -92,7 +94,7 @@ $(document).ready(function () {
         var icon = $("<img>").attr("src", iconURL);
         icon.attr("style", "width: 3rem;");
             // append temp <p>
-        var temp = $("<p>").text("Temp: " + response.list[i].main.temp + "°F");
+        var temp = $("<p>").text("Temp: " + Math.round(response.list[i].main.temp) + "°F");
             // append humidity <p>'
         var humid = $("<p>").text("Humidity: " + response.list[i].main.humidity + "%");
         //append this div to 5-day div
