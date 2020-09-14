@@ -14,7 +14,7 @@ In this project, I have created a weather dashboard where the user can enter the
 ## Installation
 
 Click this link in order to use the weather dashboard:
-"link"
+https://cgriffin332.github.io/Weather-Dashboard332/
 
 ## Usage
 
