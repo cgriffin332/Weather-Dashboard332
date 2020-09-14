@@ -62,7 +62,7 @@ $(document).ready(function () {
       }).then(function (response) {
         // create uv info
         var uvLable = $("<p>").text("UV Index: ");
-        var uv = $("<span>").text(response.value);
+        var uv = $("<span>").text(response.value).attr("style", "border-radius: 15px;");
         // add text to uv value
         uv.appendTo(uvLable);
         // add background color to uv index based on value
