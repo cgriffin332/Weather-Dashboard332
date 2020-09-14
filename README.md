@@ -2,7 +2,7 @@
 
 ## Description
 
-In this project, I have created a weather dashboard where the user can enter the name of a city in the search bar and receive the current weather as well as the 5-day forecast.  This application uses OpenWeather API to retrieve the information and stores the last searched city in local storage. It runs in the browser and features dynamically updated HTML and CSS.
+In this project, I have created a weather dashboard where the user can enter the name of a city in the search bar and receive the current weather as well as the 5-day forecast. This application uses OpenWeather API to retrieve the information and stores the last searched city in local storage. It runs in the browser and features dynamically updated HTML and CSS.
 
 ## Table of Contents
 
@@ -18,27 +18,25 @@ https://cgriffin332.github.io/Weather-Dashboard332/
 
 ## Usage
 
-When the webpage loads, the user is presented with a weather dashboard with an input to search a city name.
+When the webpage loads, the user is presented with an empty weather dashboard and a search input.
 
-![Image of First Use](./assets/images/1.png)
+![Image of First Use](./images/1.png)
 
-When the user submits a search city they are presented with the current weather conditions including city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index. The background-color of the UV Index represents the level of severity including Green(low), Yellow(moderate), Orange(high), Red(very high), and Violet(extreme).  The user is also presented with the 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity.
+When the user submits a search city they are presented with the current weather conditions including city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index. The background-color of the UV Index represents the level of severity including Green(low), Yellow(moderate), Orange(high), Red(very high), and Violet(extreme). The user is also presented with the 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity.
 
-![Image of First Search](./assets/images/2.png)
+![Image of First Search](./images/2.png)
 
 Each time the user searches a new city, it appears underneath the search-bar and becomes their search history.
 
-![Image of Five Searches](./assets/images/3.png)
+![Image of Five Searches](./images/3.png)
 
 When the user clicks on one of the cities in their search history, that city's weather information is displayed onto the page.
 
-![Image of Clicked City](./assets/images/4.png)
+![Image of Clicked City](./images/4.png)
 
 If the user refreshes the page, their search history will be removed, but they will be presented with the last searched city forecast.
 
-![Image of Last Search](./assets/images/5.png)
-
-
+![Image of Last Search](./images/5.png)
 
 ## Credits
 

@@ -10,7 +10,6 @@ $(document).ready(function () {
   // Get last searched city info from local storage
   weatherStats.html(localStorage.getItem("weatherStats"));
   forecast.html(localStorage.getItem("forecast"));
-
   //define getAllInfo function
   var getAllInfo = function () {
     // Here we are building the URL we need to query the database
@@ -62,7 +61,9 @@ $(document).ready(function () {
       }).then(function (response) {
         // create uv info
         var uvLable = $("<p>").text("UV Index: ");
-        var uv = $("<span>").text(response.value).attr("style", "border-radius: 15px;");
+        var uv = $("<span>")
+          .text(response.value)
+          .attr("style", "border-radius: 15px;");
         // add text to uv value
         uv.appendTo(uvLable);
         // add background color to uv index based on value
