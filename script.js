@@ -161,7 +161,7 @@ $(document).ready(function () {
       .text(cityValue)
       .addClass("history")
       .attr("value", cityValue);
-    searchedItems.append(search);
+    searchedItems.prepend(search);
   });
   // when user clicks search history button, that info is displayed onto screen
   $(document).on("click", ".history", function (event) {
