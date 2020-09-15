@@ -1,22 +1,26 @@
 // this all starts once the document is loaded
 $(document).ready(function () {
-  // DOM variables
+  // variables
   var submitBtn = $("#submit");
   var city = $("#inputCity");
   var weatherStats = $("#weatherStats");
   var forecast = $("#forecast");
   var searchedItems = $("#searchedItems");
   var cityValue = city.val();
+  var apiKey = "c320efcc3b8bfdd8481af302341ac06c";
   // Get last searched city info from local storage
   weatherStats.html(localStorage.getItem("weatherStats"));
   forecast.html(localStorage.getItem("forecast"));
   //define getAllInfo function
   var getAllInfo = function () {
     // Here we are building the URL we need to query the database
+
     var queryURL =
       "https://api.openweathermap.org/data/2.5/weather?q=" +
       cityValue +
-      "&appid=c320efcc3b8bfdd8481af302341ac06c&units=imperial";
+      "&appid=" +
+      apiKey +
+      "&units=imperial";
     // We then created an AJAX call to Open Weather Map
     $.ajax({
       url: queryURL,
@@ -24,7 +28,9 @@ $(document).ready(function () {
     }).then(function (response) {
       // get info for UV url
       var uvURL =
-        "https://api.openweathermap.org/data/2.5/uvi?appid=c320efcc3b8bfdd8481af302341ac06c&lat=" +
+        "https://api.openweathermap.org/data/2.5/uvi?appid=" +
+        apiKey +
+        "&lat=" +
         response.coord.lat +
         "&lon=" +
         response.coord.lon +
@@ -63,19 +69,25 @@ $(document).ready(function () {
         var uvLable = $("<p>").text("UV Index: ");
         var uv = $("<span>")
           .text(response.value)
+          // round background-color corners
           .attr("style", "border-radius: 15px;");
         // add text to uv value
         uv.appendTo(uvLable);
         // add background color to uv index based on value
         if (response.value < 3) {
+          // mild
           uv.addClass("green");
         } else if (response.value >= 11) {
+          // extreme
           uv.addClass("violet");
         } else if (response.value < 11 && response.value >= 8) {
+          // very high
           uv.addClass("red");
         } else if (response.value < 8 && response.value >= 6) {
+          // high
           uv.addClass("orange");
         } else {
+          // moderate
           uv.addClass("yellow");
         }
         // append uv info to page
@@ -86,7 +98,8 @@ $(document).ready(function () {
     var daysURL =
       "https://api.openweathermap.org/data/2.5/forecast?q=" +
       cityValue +
-      "&units=imperial&cnt=5&appid=c320efcc3b8bfdd8481af302341ac06c";
+      "&units=imperial&cnt=5&appid=" +
+      apiKey;
     //make an ajax call to 5-day
     $.ajax({
       url: daysURL,
@@ -127,7 +140,7 @@ $(document).ready(function () {
         forecast.append(day);
       }
     });
-    //give 1 second for ajax calls to be made then save info to local storage
+    // give 1 second for ajax calls to be made then save info to local storage
     setTimeout(function () {
       localStorage.setItem("weatherStats", weatherStats.html());
       localStorage.setItem("forecast", forecast.html());
