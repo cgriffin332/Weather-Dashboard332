@@ -42,6 +42,11 @@ If the user refreshes the page, their search history will be removed, but they w
 
 This project was assigned to me by my Georgia Tech Bootcamp. I used jQuery, Bootstrap, Moment.js, OpenWeather API, Ajax, and Font Awesome to help power the site.
 
+## Contact
+LinkedIn: https://www.linkedin.com/in/calvin-griffin-8247521b7/
+Email: cgriffin332@gmail.com
+Portfolio: https://cgriffin332.github.io/Updated-Portfolio332/
+
 ## License
 
 MIT License
